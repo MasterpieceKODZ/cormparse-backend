@@ -1,0 +1,17 @@
+{
+	"name": "backend",
+	"version": "1.0.0",
+	"description": "cormparse issue tracker backend service",
+	"main": "index.js",
+	"repository": "https://github.com/MasterpieceKODZ/cormparse-backend.git",
+	"author": "MasterpieceKODZ",
+	"type": "module",
+	"license": "MIT",
+	"private": false,
+	"scripts": {
+		"start": "node index.js"
+	},
+	"dependencies": {
+		"express": "^4.18.2"
+	}
+}
