@@ -1,6 +1,11 @@
-**/.env*
+**/*.env*
 **/node_modules
 **/prisma/migrations
 **/.dockerignore
 **/.gitignore
 **/exit
+**/src
+**/tsconfig.json
+**/seed_db
+**/README.md
+**/*.log
