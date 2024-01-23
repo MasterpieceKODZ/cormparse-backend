@@ -3,7 +3,7 @@ run-name: cormparse backend service ci-cd workflow
 on:
   push:
     branches:
-      - "master"
+      - "main"
 jobs:
   build_publish_docker_image:
     name: Test, Build And Publish cormparse backend service docker image
