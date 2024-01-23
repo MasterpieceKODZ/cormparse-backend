@@ -132,7 +132,7 @@ dist
 
 # DB seed
 
-**/seed
+**/seed_db
 
 # build output 
 
