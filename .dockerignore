@@ -4,3 +4,6 @@
 **/.dockerignore
 **/.gitignore
 **/exit
+**/src
+**/tsconfig.json
+**/src

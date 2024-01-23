@@ -16,7 +16,7 @@ COPY . .
 
 RUN yarn dlx prisma generate
 
-EXPOSE 3677
+EXPOSE 4030
 
 USER node
 
