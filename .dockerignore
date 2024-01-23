@@ -6,4 +6,6 @@
 **/exit
 **/src
 **/tsconfig.json
-**/src
+**/seed
+**/README.md
+**/*.log
