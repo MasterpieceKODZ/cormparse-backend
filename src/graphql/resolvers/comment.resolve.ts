@@ -1,6 +1,6 @@
 import { isErrored } from "stream";
 import dPrismaClient from "../../prisma.client.js";
-import { Comment } from "../schema.types.js";
+import { Comment } from "../db.types.js";
 
 export const commentResolver = {
 	id(parent: Comment) {

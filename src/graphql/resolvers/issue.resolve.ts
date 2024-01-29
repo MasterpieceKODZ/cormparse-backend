@@ -1,5 +1,5 @@
 import dPrismaClient from "../../prisma.client.js";
-import { Issue } from "../schema.types.js";
+import { Issue } from "../db.types.js";
 
 export const IssueResolver = {
 	id(parent: Issue) {
