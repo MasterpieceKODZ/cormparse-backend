@@ -1,5 +1,5 @@
 import dPrismaClient from "../../prisma.client.js";
-import { Update } from "../schema.types.js";
+import { Update } from "../db.types.js";
 
 export const updateResolver = {
 	id(parent: Update) {

@@ -1,5 +1,5 @@
 import dPrismaClient from "../../prisma.client.js";
-import { Project } from "../schema.types.js";
+import { Project } from "../db.types.js";
 
 export const projectResolver = {
 	id(parent: Project) {
