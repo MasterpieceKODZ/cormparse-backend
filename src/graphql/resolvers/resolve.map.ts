@@ -9,7 +9,9 @@ import { userResolver } from "./user.js";
 import { resolveProjectsCount } from "./project.count.js";
 import { resolveCreateProject } from "./create.project.js";
 import searchProjectByName from "./search.project.by.name.js";
-import { userRecentIssue } from "./recentIssue.js";
+
+import { userRecentIssue } from "./recent.Issues.js";
+
 
 export const resolvers = {
 	Query: {
