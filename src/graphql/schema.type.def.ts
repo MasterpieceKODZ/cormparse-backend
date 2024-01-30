@@ -3,11 +3,14 @@ export const typeDef = `#graphql
 type Query{
     projects(email: String!,offset: Int): [Project]
 	projectsCount(email: String!): Int
+	searchProjectByName(email: String!,search: String!): [Project]
+	userRecentIssues(email: String!): [Issue]
 	
 }
 
 type Mutation {
 	createProject(email: String!,name: String!,key: String!): Project
+	
 }
 
 type User {
