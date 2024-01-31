@@ -1,5 +1,4 @@
 import dPrismaClient from "../../prisma.client.js";
-import { Issue } from "../db.types.js";
 
 export async function resolveCreateProject(_: any, args: any) {
 	try {
