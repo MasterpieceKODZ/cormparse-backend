@@ -1,6 +1,6 @@
 import dPrismaClient from "../../prisma.client.js";
 
-export async function userRecentIssue(_: any, args: any) {
+export async function resolveUserRecentIssue(_: any, args: any) {
 	try {
 		const issues = await dPrismaClient.issue.findMany({
 			where: {

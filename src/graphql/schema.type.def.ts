@@ -5,6 +5,8 @@ type Query{
 	projectsCount(email: String!): Int
 	searchProjectByName(email: String!,search: String!): [Project]
 	userRecentIssues(email: String!): [Issue]
+	userRecentProjects(email: String!): [Project]
+	userData(email: String!): User
 	
 }
 

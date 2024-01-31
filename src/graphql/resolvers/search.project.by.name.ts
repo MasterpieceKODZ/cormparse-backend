@@ -1,6 +1,6 @@
 import dPrismaClient from "../../prisma.client.js";
 
-export default async function searchProjectByName(_: any, args: any) {
+export default async function resolveSearchProjectByName(_: any, args: any) {
 	try {
 		const projectsByName = await dPrismaClient.user.findFirst({
 			where: {
