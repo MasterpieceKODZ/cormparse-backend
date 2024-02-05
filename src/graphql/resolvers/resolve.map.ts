@@ -13,6 +13,8 @@ import resolveSearchProjectByName from "./search.project.by.name.js";
 import { resolveUserRecentIssue } from "./recent.Issues.js";
 import { resolveRecentProjects } from "./recent.projects.js";
 import { resolveUserData } from "./user.data.js";
+import { updateUserResolver } from "./update.user.js";
+import { deleteUserResolver } from "./delete.user.js";
 
 export const resolvers = {
 	Query: {
@@ -26,6 +28,8 @@ export const resolvers = {
 
 	Mutation: {
 		createProject: resolveCreateProject,
+		updateUser: updateUserResolver,
+		deleteUser: deleteUserResolver,
 	},
 
 	User: userResolver,

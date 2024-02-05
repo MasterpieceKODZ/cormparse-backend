@@ -17,7 +17,7 @@ export async function resolveProjects(_: any, args: any) {
 						skip: args.offset * 10,
 						take: 10,
 						orderBy: {
-							id: "asc",
+							name: "asc",
 						},
 					},
 				},
