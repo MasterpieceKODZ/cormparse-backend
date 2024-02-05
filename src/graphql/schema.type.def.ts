@@ -12,6 +12,8 @@ type Query{
 
 type Mutation {
 	createProject(email: String!,name: String!,key: String!): Project
+	updateUser(email: String!,username: String,role: String,photoUrl: String): User
+	deleteUser(email: String!): User
 	
 }
 
