@@ -3,9 +3,6 @@ import { User } from "../db.types.js";
 
 export const userResolver = {
 	id(parent: User) {
-		console.log("user id resolver engaged...");
-		console.log(parent.id);
-
 		return parent.id;
 	},
 	email(parent: User) {
@@ -43,9 +40,6 @@ export const userResolver = {
 				},
 			});
 
-			console.log("user ", parent.id, " recent issues --");
-			console.log(recentIss?.recentIssues);
-
 			return recentIss?.recentIssues;
 		} catch (err) {
 			console.log("user recent-issues resolution failed");
@@ -64,9 +58,6 @@ export const userResolver = {
 				},
 			});
 
-			console.log("user ", parent.id, " assigned issues --");
-			console.log(assignedIss?.assignedIssues);
-
 			return assignedIss?.assignedIssues;
 		} catch (err) {
 			console.log("user assingned-issues resolution failed.");
@@ -84,9 +75,6 @@ export const userResolver = {
 					reportedIssues: true,
 				},
 			});
-
-			console.log("user ", parent.id, " reported issues --");
-			console.log(reportedIss?.reportedIssues);
 			return reportedIss?.reportedIssues;
 		} catch (err) {
 			console.log("user reported-issue resolution failed...");
@@ -104,9 +92,6 @@ export const userResolver = {
 					projectsAsCreator: true,
 				},
 			});
-
-			console.log(`user ${parent.id} : projects-as-creator --`);
-			console.log(projCreated?.projectsAsCreator);
 
 			return projCreated?.projectsAsCreator;
 		} catch (err) {
@@ -126,8 +111,6 @@ export const userResolver = {
 				},
 			});
 
-			console.log(`user ${parent.id} : projects-as-member --`);
-			console.log(projAsMem?.projectsAsMember);
 			return projAsMem?.projectsAsMember;
 		} catch (err) {
 			console.log("user project-as-member resolution failed...");
@@ -146,8 +129,6 @@ export const userResolver = {
 				},
 			});
 
-			console.log(`user ${parent.id} : projects-as-admin --`);
-			console.log(projAsAdmin?.projectsAsAdmin);
 			return projAsAdmin?.projectsAsAdmin;
 		} catch (err) {
 			console.log("issue project-as-admin resolution failed..");
@@ -166,8 +147,6 @@ export const userResolver = {
 				},
 			});
 
-			console.log(`user ${parent.id} : projects-as-lead --`);
-			console.log(projAsLead?.projectsAsLead);
 			return projAsLead?.projectsAsLead;
 		} catch (err) {
 			console.log("user projects-as-lead resolution failed ...");
@@ -186,8 +165,6 @@ export const userResolver = {
 				},
 			});
 
-			console.log(`user ${parent.id} : projects-as-default-assignee --`);
-			console.log(projAsDefAss?.projectsAsDefaultAssignee);
 			return projAsDefAss?.projectsAsDefaultAssignee;
 		} catch (err) {
 			console.log("user project-as-default-assignee resolution failed...");
@@ -206,8 +183,6 @@ export const userResolver = {
 				},
 			});
 
-			console.log(`user ${parent.id} : comments --`);
-			console.log(comm?.comments);
 			return comm?.comments;
 		} catch (err) {
 			console.log("user comments resolution failed...");
@@ -226,8 +201,6 @@ export const userResolver = {
 				},
 			});
 
-			console.log(`user ${parent.id} : comments --`);
-			console.log(act?.activities);
 			return act?.activities;
 		} catch (err) {
 			console.log("user activities resolution failed...");

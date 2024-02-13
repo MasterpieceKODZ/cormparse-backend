@@ -1,9 +1,6 @@
 import dPrismaClient from "../../prisma.client.js";
 
 export async function updateUserResolver(_: any, args: any) {
-	console.log("args from update user ->");
-	console.log(args);
-
 	try {
 		// fetch current user data
 		const currentUserData = await dPrismaClient.user.findFirst({

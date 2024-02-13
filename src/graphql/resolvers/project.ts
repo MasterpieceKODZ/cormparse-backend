@@ -3,9 +3,6 @@ import { Project } from "../db.types.js";
 
 export const projectResolver = {
 	id(parent: Project) {
-		console.log("project id engaged ");
-		console.log(parent.id);
-
 		return parent.id;
 	},
 	name(parent: Project) {
@@ -31,9 +28,6 @@ export const projectResolver = {
 				},
 			});
 
-			console.log(`project ${parent.key} creator --`);
-			console.log(crt?.creatorRef);
-
 			return crt?.creatorRef;
 		} catch (err) {
 			console.log("project creator resolution failed...");
@@ -51,9 +45,6 @@ export const projectResolver = {
 					people: true,
 				},
 			});
-
-			console.log(`project ${ppl?.people} people --`);
-			console.log(ppl?.people);
 
 			return ppl?.people;
 		} catch (err) {
@@ -73,9 +64,6 @@ export const projectResolver = {
 				},
 			});
 
-			console.log(`project ${adm?.admins} admins --`);
-			console.log(adm?.admins);
-
 			return adm?.admins;
 		} catch (err) {
 			console.log("project admins resolution failed...");
@@ -94,9 +82,6 @@ export const projectResolver = {
 				},
 			});
 
-			console.log(`project ${led?.leadRef} lead --`);
-			console.log(led?.leadRef);
-
 			return led?.leadRef;
 		} catch (err) {
 			console.log("project lead resolution failed...");
@@ -114,9 +99,6 @@ export const projectResolver = {
 					defaultAssigneeRef: true,
 				},
 			});
-
-			console.log(`project ${defAss?.defaultAssigneeRef} default assignee --`);
-			console.log(defAss?.defaultAssigneeRef);
 
 			return defAss?.defaultAssigneeRef;
 		} catch (err) {
@@ -141,9 +123,6 @@ export const projectResolver = {
 					issues: true,
 				},
 			});
-
-			console.log(`project ${iss?.issues} default assignee --`);
-			console.log(iss?.issues);
 
 			return iss?.issues;
 		} catch (err) {

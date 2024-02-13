@@ -1,9 +1,6 @@
 import dPrismaClient from "../../prisma.client.js";
 
 export async function resolveProjects(_: any, args: any) {
-	console.log(" projects resolver engaged...");
-	console.log(args);
-
 	let projects;
 	try {
 		if (args.offset && args.offset > 0) {
@@ -39,9 +36,6 @@ export async function resolveProjects(_: any, args: any) {
 				},
 			});
 		}
-
-		console.log(`projects of user ${args.email} resolved...`);
-		console.log(projects);
 
 		return projects?.projectsAsMember;
 	} catch (err) {

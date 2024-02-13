@@ -26,9 +26,6 @@ export async function resolveUserRecentIssue(_: any, args: any) {
 			},
 		});
 
-		console.log("user recent issues are ");
-		console.log(issues);
-
 		return issues;
 	} catch (err) {
 		console.log("error resolving user recent issues");

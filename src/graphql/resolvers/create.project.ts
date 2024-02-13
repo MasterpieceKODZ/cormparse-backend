@@ -34,9 +34,6 @@ export async function resolveCreateProject(_: any, args: any) {
 				},
 			});
 
-			console.log("new project created..");
-			console.log(project);
-
 			return project;
 		} else {
 			console.log("error in create project resolver...");
