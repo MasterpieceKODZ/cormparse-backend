@@ -19,9 +19,6 @@ export const updateResolver = {
 				},
 			});
 
-			console.log(`update ${parent.id} actor --`);
-			console.log(act?.actor);
-
 			return act?.actor;
 		} catch (error) {
 			console.log("db error while resolving update actor");
@@ -39,9 +36,6 @@ export const updateResolver = {
 					issueRef: true,
 				},
 			});
-
-			console.log(`update ${parent.id} actor --`);
-			console.log(iss?.issueRef);
 
 			return iss?.issueRef;
 		} catch (error) {

@@ -17,9 +17,6 @@ export const commentResolver = {
 				},
 			});
 
-			console.log(`comment ${parent.id} author ---`);
-			console.log(ath?.authorRef);
-
 			return ath?.authorRef;
 		} catch (err) {
 			console.log("comment author resolution failed...");
@@ -47,9 +44,6 @@ export const commentResolver = {
 				},
 			});
 
-			console.log(`comment ${parent.id} replied to ---`);
-			console.log(repTo?.replyToRef);
-
 			return repTo?.replyToRef;
 		} catch (err) {
 			console.log("comment reply-to resolution failed...");
@@ -68,9 +62,6 @@ export const commentResolver = {
 					repliedBy: true,
 				},
 			});
-
-			console.log(`comment ${parent.id} replied to ---`);
-			console.log(repBy?.repliedBy);
 
 			return repBy?.repliedBy;
 		} catch (err) {
@@ -95,9 +86,6 @@ export const commentResolver = {
 					issueRef: true,
 				},
 			});
-
-			console.log(`comment ${parent.id} issue ---`);
-			console.log(iss?.issueRef);
 
 			return iss?.issueRef;
 		} catch (err) {

@@ -17,9 +17,6 @@ export default async function resolveSearchProjectByName(_: any, args: any) {
 			},
 		});
 
-		console.log("projects with ", args.search, " in their name..");
-		console.log(projectsByName);
-
 		return projectsByName?.projectsAsMember;
 	} catch (e) {
 		console.log("error in search project by name resolver");

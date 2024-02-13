@@ -40,9 +40,6 @@ export const IssueResolver = {
 				},
 			});
 
-			console.log("issue ", parent.key, " assigne --");
-			console.log(ass?.assigneeRef);
-
 			return ass?.assigneeRef;
 		} catch (err) {
 			console.log("issue assignee resolution faild...");
@@ -60,9 +57,6 @@ export const IssueResolver = {
 					reporterRef: true,
 				},
 			});
-
-			console.log("issue ", parent.key, " reporter --");
-			console.log(repo?.reporterRef);
 
 			return repo?.reporterRef;
 		} catch (err) {
@@ -83,9 +77,6 @@ export const IssueResolver = {
 				},
 			});
 
-			console.log("issue ", parent.key, " project --");
-			console.log(proj?.projectRef);
-
 			return proj?.projectRef;
 		} catch (err) {
 			console.log("issue project resolution failed...");
@@ -104,9 +95,6 @@ export const IssueResolver = {
 					parentIssueRef: true,
 				},
 			});
-
-			console.log("issue ", parent.key, " parent issue --");
-			console.log(prntIss?.parentIssueRef);
 
 			return prntIss?.parentIssueRef;
 		} catch (err) {
@@ -127,9 +115,6 @@ export const IssueResolver = {
 				},
 			});
 
-			console.log("issue ", parent.key, " child issue --");
-			console.log(chdIss?.childIssues);
-
 			return chdIss?.childIssues;
 		} catch (err) {
 			console.log("issue child-issue resolution failed...");
@@ -149,9 +134,6 @@ export const IssueResolver = {
 				},
 			});
 
-			console.log("issue ", parent.key, " super issue --");
-			console.log(sprIss?.superIssueRef);
-
 			return sprIss?.superIssueRef;
 		} catch (err) {
 			console.log("issue super-issue resolution failed...");
@@ -170,9 +152,6 @@ export const IssueResolver = {
 					subTasks: true,
 				},
 			});
-
-			console.log("issue ", parent.key, " sub-tasks --");
-			console.log(sbTsks?.subTasks);
 
 			return sbTsks?.subTasks;
 		} catch (err) {
@@ -202,9 +181,6 @@ export const IssueResolver = {
 				},
 			});
 
-			console.log("issue ", parent.key, " comments --");
-			console.log(comm);
-
 			return comm?.comments;
 		} catch (err) {
 			console.log("issue comments resolution failed...");
@@ -224,9 +200,6 @@ export const IssueResolver = {
 				},
 			});
 
-			console.log("issue ", parent.key, " activities --");
-			console.log(act?.activities);
-
 			return act?.activities;
 		} catch (err) {
 			console.log("issue activities resolution failed...");
@@ -245,9 +218,6 @@ export const IssueResolver = {
 					recentActors: true,
 				},
 			});
-
-			console.log("issue ", parent.key, " recent actors --");
-			console.log(rntAct?.recentActors);
 
 			return rntAct?.recentActors;
 		} catch (err) {
