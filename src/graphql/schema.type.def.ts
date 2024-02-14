@@ -7,7 +7,8 @@ type Query{
 	userRecentIssues(email: String!): [Issue]
 	userRecentProjects(email: String!): [Project]
 	userData(email: String!): User
-	projectIssues(email: String!,projectKey: String!, category: String!, props: String ): [Issue]
+	projectIssues(email: String!,projectKey: String!, category: String!, props: String, offset: String ): [Issue]
+	projectPeople(email: String!,projectKey: String!,username: String): [User]
 	
 }
 

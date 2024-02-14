@@ -16,6 +16,7 @@ import { resolveUserData } from "./user.data.js";
 import { updateUserResolver } from "./update.user.js";
 import { deleteUserResolver } from "./delete.user.js";
 import { projectIssuesResolver } from "./project.issues.js";
+import { projectPeopleResolver } from "./project.people.js";
 
 export const resolvers = {
 	Query: {
@@ -26,6 +27,7 @@ export const resolvers = {
 		userRecentProjects: resolveRecentProjects,
 		userData: resolveUserData,
 		projectIssues: projectIssuesResolver,
+		projectPeople: projectPeopleResolver,
 	},
 
 	Mutation: {

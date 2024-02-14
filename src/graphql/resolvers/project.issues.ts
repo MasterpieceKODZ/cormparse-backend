@@ -29,6 +29,8 @@ export async function projectIssuesResolver(_: any, args: any) {
 								},
 							},
 						},
+						skip: (parseInt(args.offset) - 1) * 10,
+						take: 10,
 						select: {
 							issues: true,
 						},
@@ -44,6 +46,8 @@ export async function projectIssuesResolver(_: any, args: any) {
 								},
 							},
 						},
+						skip: (parseInt(args.offset) - 1) * 10,
+						take: 10,
 						select: {
 							issues: {
 								where: {
@@ -66,6 +70,8 @@ export async function projectIssuesResolver(_: any, args: any) {
 								},
 							},
 						},
+						skip: (parseInt(args.offset) - 1) * 10,
+						take: 10,
 						select: {
 							issues: {
 								where: {
@@ -85,6 +91,8 @@ export async function projectIssuesResolver(_: any, args: any) {
 								},
 							},
 						},
+						skip: (parseInt(args.offset) - 1) * 10,
+						take: 10,
 						select: {
 							issues: {
 								where: {
@@ -113,7 +121,11 @@ export async function projectIssuesResolver(_: any, args: any) {
 			if (props.assignee) {
 				issueProp = {
 					...issueProp,
-					assignee: props.assignee,
+					assigneeRef: {
+						username: {
+							contains: props.assignee,
+						},
+					},
 				};
 			}
 
@@ -133,10 +145,12 @@ export async function projectIssuesResolver(_: any, args: any) {
 						},
 					},
 				},
+				skip: (parseInt(args.offset) - 1) * 10,
+				take: 10,
 				select: {
 					issues: {
 						where: {
-							...issueProp,
+							AND: { ...issueProp },
 						},
 					},
 				},
