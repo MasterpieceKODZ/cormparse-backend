@@ -12,95 +12,84 @@ export async function projectIssuesResolver(_: any, args: any) {
 		console.log("args props ===================================");
 		console.log(props);
 
+		const projID = await dPrismaClient.project.findFirst({
+			where: {
+				key: args.projectKey,
+				people: {
+					some: {
+						email: args.email,
+					},
+				},
+			},
+
+			select: {
+				id: true,
+			},
+		});
+
 		// fetch issues without properties filter
 		if (props.length < 1) {
 			console.log("fetching issues without properties filter...");
 
 			switch ((args.category as string).toUpperCase()) {
 				case "ALL":
-					projIssues = await dPrismaClient.project.findFirst({
-						where: {
-							AND: {
-								key: args.projectKey,
-								people: {
-									some: {
-										email: args.email,
-									},
-								},
+					if (projID?.id) {
+						projIssues = await dPrismaClient.issue.findMany({
+							where: {
+								project: projID.id,
 							},
-						},
-						skip: (parseInt(args.offset) - 1) * 10,
-						take: 10,
-						select: {
-							issues: true,
-						},
-					});
+							skip: (args.offset - 1) * 10,
+							take: 10,
+						});
+					} else {
+						return [];
+					}
+
 					break;
 				case "PENDING":
-					projIssues = await dPrismaClient.project.findFirst({
-						where: {
-							key: args.projectKey,
-							people: {
-								some: {
-									email: args.email,
+					if (projID?.id) {
+						projIssues = await dPrismaClient.issue.findMany({
+							where: {
+								assignee: args.email,
+								project: projID.id,
+								AND: {
+									NOT: { status: "done" },
 								},
 							},
-						},
-						skip: (parseInt(args.offset) - 1) * 10,
-						take: 10,
-						select: {
-							issues: {
-								where: {
-									assignee: args.email,
-									AND: {
-										NOT: { status: "done" },
-									},
-								},
-							},
-						},
-					});
+							skip: (args.offset - 1) * 10,
+							take: 10,
+						});
+					} else {
+						return [];
+					}
 					break;
 				case "REPORTEDBYME":
-					projIssues = await dPrismaClient.project.findFirst({
-						where: {
-							key: args.projectKey,
-							people: {
-								some: {
-									email: args.email,
-								},
+					if (projID?.id) {
+						projIssues = await dPrismaClient.issue.findMany({
+							where: {
+								project: projID.id,
+								reporter: args.email,
 							},
-						},
-						skip: (parseInt(args.offset) - 1) * 10,
-						take: 10,
-						select: {
-							issues: {
-								where: {
-									reporter: args.email,
-								},
-							},
-						},
-					});
+							skip: (args.offset - 1) * 10,
+							take: 10,
+						});
+					} else {
+						return [];
+					}
 					break;
 				case "DONE":
-					projIssues = await dPrismaClient.project.findFirst({
-						where: {
-							key: args.projectKey,
-							people: {
-								some: {
-									email: args.email,
-								},
+					if (projID?.id) {
+						projIssues = await dPrismaClient.issue.findMany({
+							where: {
+								project: projID.id,
+								status: "done",
 							},
-						},
-						skip: (parseInt(args.offset) - 1) * 10,
-						take: 10,
-						select: {
-							issues: {
-								where: {
-									status: "done",
-								},
-							},
-						},
-					});
+							skip: (args.offset - 1) * 10,
+							take: 10,
+						});
+					} else {
+						return [];
+					}
 					break;
 
 				default:
@@ -145,19 +134,34 @@ export async function projectIssuesResolver(_: any, args: any) {
 						},
 					},
 				},
-				skip: (parseInt(args.offset) - 1) * 10,
-				take: 10,
+
 				select: {
 					issues: {
 						where: {
 							AND: { ...issueProp },
 						},
+						skip: (args.offset - 1) * 10,
+						take: 10,
 					},
 				},
 			});
+
+			//  ************************
+			if (projID?.id) {
+				projIssues = await dPrismaClient.issue.findMany({
+					where: {
+						project: projID.id,
+						AND: { ...issueProp },
+					},
+					skip: (args.offset - 1) * 10,
+					take: 10,
+				});
+			} else {
+				return [];
+			}
 		}
 
-		return projIssues?.issues;
+		return projIssues;
 	} catch (err) {
 		console.log("error on project issues resolver");
 		console.log(err);
