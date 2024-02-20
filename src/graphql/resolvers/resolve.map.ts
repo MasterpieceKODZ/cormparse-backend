@@ -17,6 +17,7 @@ import { updateUserResolver } from "./update.user.js";
 import { deleteUserResolver } from "./delete.user.js";
 import { projectIssuesResolver } from "./project.issues.js";
 import { projectPeopleResolver } from "./project.people.js";
+import { projectIssueCountResolver } from "./project.issue.count.js";
 
 export const resolvers = {
 	Query: {
@@ -28,6 +29,7 @@ export const resolvers = {
 		userData: resolveUserData,
 		projectIssues: projectIssuesResolver,
 		projectPeople: projectPeopleResolver,
+		projectIssuesCount: projectIssueCountResolver,
 	},
 
 	Mutation: {
